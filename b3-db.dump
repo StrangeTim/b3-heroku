@@ -1,0 +1,460 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.10
+-- Dumped by pg_dump version 9.5.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: abouts; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE TABLE abouts (
+    id integer NOT NULL,
+    title character varying,
+    body character varying,
+    contact_email character varying,
+    contact_phone character varying,
+    contact_address character varying,
+    image_file_name character varying,
+    image_content_type character varying,
+    image_file_size integer,
+    image_updated_at timestamp without time zone
+);
+
+
+ALTER TABLE abouts OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: abouts_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE SEQUENCE abouts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE abouts_id_seq OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: abouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER SEQUENCE abouts_id_seq OWNED BY abouts.id;
+
+
+--
+-- Name: artists; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE TABLE artists (
+    id integer NOT NULL,
+    name character varying,
+    bio character varying,
+    updated_by character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    profile_pic_file_name character varying,
+    profile_pic_content_type character varying,
+    profile_pic_file_size integer,
+    profile_pic_updated_at timestamp without time zone,
+    display_image_id integer
+);
+
+
+ALTER TABLE artists OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE SEQUENCE artists_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE artists_id_seq OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER SEQUENCE artists_id_seq OWNED BY artists.id;
+
+
+--
+-- Name: artworks; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE TABLE artworks (
+    id integer NOT NULL,
+    name character varying,
+    blurb character varying,
+    image_description character varying,
+    updated_by character varying,
+    image_file_name character varying,
+    image_content_type character varying,
+    image_file_size integer,
+    image_updated_at timestamp without time zone,
+    artist_id integer
+);
+
+
+ALTER TABLE artworks OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: artworks_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE SEQUENCE artworks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE artworks_id_seq OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: artworks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER SEQUENCE artworks_id_seq OWNED BY artworks.id;
+
+
+--
+-- Name: homes; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE TABLE homes (
+    id integer NOT NULL,
+    title character varying,
+    left_header character varying,
+    left_body character varying,
+    right_header character varying,
+    right_body character varying
+);
+
+
+ALTER TABLE homes OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: homes_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE SEQUENCE homes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE homes_id_seq OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: homes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER SEQUENCE homes_id_seq OWNED BY homes.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    username character varying DEFAULT ''::character varying NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
+    reset_password_sent_at timestamp without time zone,
+    remember_created_at timestamp without time zone,
+    sign_in_count integer DEFAULT 0 NOT NULL,
+    current_sign_in_at timestamp without time zone,
+    last_sign_in_at timestamp without time zone,
+    current_sign_in_ip inet,
+    last_sign_in_ip inet,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO ltvqmklobvxdpa;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY abouts ALTER COLUMN id SET DEFAULT nextval('abouts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY artists ALTER COLUMN id SET DEFAULT nextval('artists_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY artworks ALTER COLUMN id SET DEFAULT nextval('artworks_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY homes ALTER COLUMN id SET DEFAULT nextval('homes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: abouts; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+COPY abouts (id, title, body, contact_email, contact_phone, contact_address, image_file_name, image_content_type, image_file_size, image_updated_at) FROM stdin;
+1	About Us	lorem ipsum	unknown@questionmark.com	(812)-988-6675	Van Buren St, Nashville, Indiana	b3_owners.jpg	image/jpeg	49788	2015-07-18 15:31:25.011198
+\.
+
+
+--
+-- Name: abouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+SELECT pg_catalog.setval('abouts_id_seq', 1, true);
+
+
+--
+-- Data for Name: artists; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+COPY artists (id, name, bio, updated_by, created_at, updated_at, profile_pic_file_name, profile_pic_content_type, profile_pic_file_size, profile_pic_updated_at, display_image_id) FROM stdin;
+2	Bussert Images	Sharon Bussert was born in Missouri and grew up in Salem, Indiana. While attending Purdue University she spent a year abroad in Madrid, Spain. This experience fueled her passion for travel, and she has since visited 32 foreign countries and most of the states in the US. In 2004 she moved to London, England. While in London Sharon began showing her work publicly and won several awards for her images. In 2007 she returned to the US, settling in Brown County, Indiana. \r\n\r\nSince returning to Indiana Sharon has focused her work on wildlife, landscapes, and floral portraits. She is part owner of B3 Gallery in Nashville, Indiana. Sharon works as a free-lance writer and photographer.\r\n\r\n\r\nJessica Bussert was born in Elkhart, Indiana to artist parents. She attended Purdue University and pursued a career in information technology. After a long and successful career Jessica retired from IT. While working as a volunteer EMT and firefighter in her rural community she decided to pursue a second career. She now works as an emergency room nurse in the travel industry. Her work involves taking short term contracts throughout the US, giving her a new palate to photograph every few months.\r\n\r\nThroughout her life she has worked in various media including glass, wood, and metals. In her photography she likes to seek out the hidden and unknown, or bring forth the obvious in a different light. Jessica has shown her work in both the US and Europe. She is part owner of B3 Gallery in Nashville, Indiana. \r\n \r\n\r\n\r\nJessica and Sharon often work together on their photography, and market their combined work as Bussert Images. They spend much of the year traveling together in a large motor home while Jessica works nursing contracts. Their work can be found in select locations in the Midwest and Western US or on their website, www.bussert.com. \r\n	\N	2015-10-27 16:38:00.510883	2015-10-27 16:43:37.018543	20061006-9637-Fog_House-low_res.jpg	image/jpeg	105908	2015-10-27 16:38:00.489375	2
+\.
+
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+SELECT pg_catalog.setval('artists_id_seq', 2, true);
+
+
+--
+-- Data for Name: artworks; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+COPY artworks (id, name, blurb, image_description, updated_by, image_file_name, image_content_type, image_file_size, image_updated_at, artist_id) FROM stdin;
+2	Fog House	Brown County, Indiana	We spotted this image while returning from a party in Bloomington, Indiana. Wearing a short skirt and heels, Jessica demonstrated her dedication to photography by hiking out into a recently cut cornfield and setting up her tripod. As she triggered a long time exposure, a pack of coyote began howling at the edge of the field. Let's just say---that girl can run in heels!	\N	20061006-9637-Fog_House-low_res.jpg	image/jpeg	105908	2015-10-27 16:43:36.916517	2
+3	Bean Blossom Bridge	Brown County Indiana	Built in 1880, the Bean Blossom Bridge is still in use today. It's often considered to be the most picturesque bridge in Indiana.	\N	20101023-8681-Bean_Blossom_Bridge_in_Fall_low_res.jpg	image/jpeg	632943	2016-01-09 22:58:07.078998	2
+\.
+
+
+--
+-- Name: artworks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+SELECT pg_catalog.setval('artworks_id_seq', 3, true);
+
+
+--
+-- Data for Name: homes; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+COPY homes (id, title, left_header, left_body, right_header, right_body) FROM stdin;
+1	B3 Art Gallery	Featured Artist	Bacon ipsum dolor amet pig shank short loin tri-tip capicola, short ribs hamburger rump tail. Turkey boudin bacon pork chop bresaola shoulder leberkas pig fatback sirloin meatloaf. Tongue short ribs spare ribs prosciutto jowl kielbasa sausage. Drumstick doner hamburger landjaeger sirloin beef alcatra jerky.\r\n\r\nKielbasa spare ribs boudin, alcatra tri-tip bacon capicola turkey turducken strip steak ribeye cow. Boudin bresaola hamburger ground round meatloaf, biltong pork loin pastrami tri-tip ham capicola tongue. Pig biltong frankfurter venison. Fatback tenderloin tongue strip steak swine ribeye. Spare ribs beef ribs pork loin strip steak ham, bacon swine pig shankle doner meatloaf ground round cupim rump turkey. Ground round prosciutto short ribs meatloaf, strip steak sausage jowl fatback doner shankle chuck rump short loin. Pig alcatra pork loin short ribs venison pork chop shankle short loin kielbasa kevin.	About B3 Gallery	B3 Gallery sells locally-made functional and fine art work. We also house working studios for several artists, and have a classroom where local artists host classes. The gallery sells jewelry, paintings, photography, pottery, glass, woodworking, fiber arts, mosaics and more. 100% of the items in shop are made in Indiana, and the majority of our goods are one-of-a-kind. \r\n\r\nLocal artists are working in shop on a daily basis. Jewelers Heather Bussert-Strantz and Larry Davidson create a variety of unique pieces and accept commissions. Local photographers Jessica and Sharon Bussert also have their studio in shop and will provide custom work. \r\n\r\nFrom May through November B3 Gallery hosts special month-long shows for featured artists. Openings are held from 5-8 PM on the second Saturday of the month, during the village-wide Art Walk. \r\n\r\nAny Indiana artist is invited to submit work for consideration in the gallery or for a special show. Please contact the gallery for more information.
+\.
+
+
+--
+-- Name: homes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+SELECT pg_catalog.setval('homes_id_seq', 1, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+COPY schema_migrations (version) FROM stdin;
+20150716211706
+20150716171512
+20150715165908
+20150715163700
+20150718054843
+20150718151552
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+COPY users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at) FROM stdin;
+1	strangetim	strang3tim@gmail.com	$2a$10$kNGeFQWSIHCYFkkAoMM8COy8xavAWFTphuLzjJaHv0rgX1s57O252	\N	\N	\N	4	2015-07-30 21:50:16.576269	2015-07-30 21:47:01.524693	75.164.205.88	75.164.205.88	2015-07-17 03:25:28.810474	2015-07-30 21:50:16.579514
+3		jessbussert@yahoo.com	$2a$10$40LBPocnDyzFVX3m9LI4JuRxTLalQC58CckEoxm1xwv3/A5tr9DVG	\N	\N	\N	0	\N	\N	\N	\N	2015-07-30 22:18:57.726671	2015-07-30 22:18:57.726671
+4	sharonbussert	sharonbussert@yahoo.com	$2a$10$EGNNlcSbMixXrYMZdotmaeJz4rDK1PIV9y.GAAGEz1MBOLcFprrK2	\N	\N	\N	3	2016-03-23 00:46:18.564339	2016-01-09 22:44:15.726367	107.77.109.21	107.77.109.78	2015-10-27 16:35:04.064602	2016-03-23 00:46:18.566678
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+SELECT pg_catalog.setval('users_id_seq', 4, true);
+
+
+--
+-- Name: abouts_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY abouts
+    ADD CONSTRAINT abouts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: artists_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY artists
+    ADD CONSTRAINT artists_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: artworks_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY artworks
+    ADD CONSTRAINT artworks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: homes_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY homes
+    ADD CONSTRAINT homes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
+
+
+--
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: ltvqmklobvxdpa
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: ltvqmklobvxdpa
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM ltvqmklobvxdpa;
+GRANT ALL ON SCHEMA public TO ltvqmklobvxdpa;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
