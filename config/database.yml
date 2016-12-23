@@ -36,6 +36,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  url: <%= ENV["B3_DB_URL"] %>
   database: b3_gallery_production
-  username: b3_gallery
-  password: <%= ENV['B3_GALLERY_DATABASE_PASSWORD'] %>
+  username: <%= ENV['B3_DB_USER_NAME'] %>
+  password: <%= ENV['B3_DB_PASS'] %>
+  host: localhost

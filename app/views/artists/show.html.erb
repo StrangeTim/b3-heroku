@@ -39,8 +39,8 @@
 <% @artworks.each do |artwork| %>
   <ul>
     <li class="all-artists">
-      <%= link_to image_tag(artwork.image), artist_artwork_path(@artist, artwork), alt: artwork.blurb, data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, image: "/assets/"+artwork.image.url(:original, timestamp: false)}, remote: true %>
-      <h3><%= link_to artwork.name, artist_artwork_path(@artist, artwork), data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, image: "/assets/"+artwork.image.url(:original, timestamp: false)}, remote: true %> </h3>
+      <%= link_to image_tag(artwork.image), artist_artwork_path(@artist, artwork), alt: artwork.blurb, data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, image: artwork.image.url(:original, timestamp: false)}, remote: true %>
+      <h3><%= link_to artwork.name, artist_artwork_path(@artist, artwork), data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, image: artwork.image.url(:original, timestamp: false)}, remote: true %> </h3>
       <% if user_signed_in? %>
 
         <span class="imageButtons">

@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   has_many :artworks, :dependent => :destroy
-  has_attached_file :profile_pic, :path => ":rails_root/app/assets/images/:class/:id/:basename.:extension",
-                    :url => ":class/:id/:basename.:extension"
+  has_attached_file :profile_pic, :path => ":rails_root/public/assets/images/:class/:id/:basename.:extension",
+                    :url => "/assets/images/:class/:id/:basename.:extension"
   validates :name, :presence => true
   validates_attachment_presence :profile_pic
   validates_attachment_content_type :profile_pic, :content_type => /\Aimage\/.*\Z/

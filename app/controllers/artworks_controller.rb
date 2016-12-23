@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
     else
       render :new
     end
-    redirect_to artist_path(@artwork.artist)
+    redirect_to artist_path(@artist)
   end
 
   def show

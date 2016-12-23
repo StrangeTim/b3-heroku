@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: abouts; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: abouts; Type: TABLE; Schema: public; Owner: rails
 --
 
 CREATE TABLE abouts (
@@ -51,10 +51,10 @@ CREATE TABLE abouts (
 );
 
 
-ALTER TABLE abouts OWNER TO ltvqmklobvxdpa;
+ALTER TABLE abouts OWNER TO rails;
 
 --
--- Name: abouts_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: abouts_id_seq; Type: SEQUENCE; Schema: public; Owner: rails
 --
 
 CREATE SEQUENCE abouts_id_seq
@@ -65,17 +65,17 @@ CREATE SEQUENCE abouts_id_seq
     CACHE 1;
 
 
-ALTER TABLE abouts_id_seq OWNER TO ltvqmklobvxdpa;
+ALTER TABLE abouts_id_seq OWNER TO rails;
 
 --
--- Name: abouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: abouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rails
 --
 
 ALTER SEQUENCE abouts_id_seq OWNED BY abouts.id;
 
 
 --
--- Name: artists; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artists; Type: TABLE; Schema: public; Owner: rails
 --
 
 CREATE TABLE artists (
@@ -93,10 +93,10 @@ CREATE TABLE artists (
 );
 
 
-ALTER TABLE artists OWNER TO ltvqmklobvxdpa;
+ALTER TABLE artists OWNER TO rails;
 
 --
--- Name: artists_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artists_id_seq; Type: SEQUENCE; Schema: public; Owner: rails
 --
 
 CREATE SEQUENCE artists_id_seq
@@ -107,17 +107,17 @@ CREATE SEQUENCE artists_id_seq
     CACHE 1;
 
 
-ALTER TABLE artists_id_seq OWNER TO ltvqmklobvxdpa;
+ALTER TABLE artists_id_seq OWNER TO rails;
 
 --
--- Name: artists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rails
 --
 
 ALTER SEQUENCE artists_id_seq OWNED BY artists.id;
 
 
 --
--- Name: artworks; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artworks; Type: TABLE; Schema: public; Owner: rails
 --
 
 CREATE TABLE artworks (
@@ -134,10 +134,10 @@ CREATE TABLE artworks (
 );
 
 
-ALTER TABLE artworks OWNER TO ltvqmklobvxdpa;
+ALTER TABLE artworks OWNER TO rails;
 
 --
--- Name: artworks_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artworks_id_seq; Type: SEQUENCE; Schema: public; Owner: rails
 --
 
 CREATE SEQUENCE artworks_id_seq
@@ -148,17 +148,17 @@ CREATE SEQUENCE artworks_id_seq
     CACHE 1;
 
 
-ALTER TABLE artworks_id_seq OWNER TO ltvqmklobvxdpa;
+ALTER TABLE artworks_id_seq OWNER TO rails;
 
 --
--- Name: artworks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artworks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rails
 --
 
 ALTER SEQUENCE artworks_id_seq OWNED BY artworks.id;
 
 
 --
--- Name: homes; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: homes; Type: TABLE; Schema: public; Owner: rails
 --
 
 CREATE TABLE homes (
@@ -171,10 +171,10 @@ CREATE TABLE homes (
 );
 
 
-ALTER TABLE homes OWNER TO ltvqmklobvxdpa;
+ALTER TABLE homes OWNER TO rails;
 
 --
--- Name: homes_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: homes_id_seq; Type: SEQUENCE; Schema: public; Owner: rails
 --
 
 CREATE SEQUENCE homes_id_seq
@@ -185,17 +185,17 @@ CREATE SEQUENCE homes_id_seq
     CACHE 1;
 
 
-ALTER TABLE homes_id_seq OWNER TO ltvqmklobvxdpa;
+ALTER TABLE homes_id_seq OWNER TO rails;
 
 --
--- Name: homes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: homes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rails
 --
 
 ALTER SEQUENCE homes_id_seq OWNED BY homes.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: rails
 --
 
 CREATE TABLE schema_migrations (
@@ -203,10 +203,10 @@ CREATE TABLE schema_migrations (
 );
 
 
-ALTER TABLE schema_migrations OWNER TO ltvqmklobvxdpa;
+ALTER TABLE schema_migrations OWNER TO rails;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: users; Type: TABLE; Schema: public; Owner: rails
 --
 
 CREATE TABLE users (
@@ -227,10 +227,10 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE users OWNER TO ltvqmklobvxdpa;
+ALTER TABLE users OWNER TO rails;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: rails
 --
 
 CREATE SEQUENCE users_id_seq
@@ -241,52 +241,52 @@ CREATE SEQUENCE users_id_seq
     CACHE 1;
 
 
-ALTER TABLE users_id_seq OWNER TO ltvqmklobvxdpa;
+ALTER TABLE users_id_seq OWNER TO rails;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rails
 --
 
 ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: id; Type: DEFAULT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY abouts ALTER COLUMN id SET DEFAULT nextval('abouts_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: id; Type: DEFAULT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY artists ALTER COLUMN id SET DEFAULT nextval('artists_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: id; Type: DEFAULT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY artworks ALTER COLUMN id SET DEFAULT nextval('artworks_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: id; Type: DEFAULT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY homes ALTER COLUMN id SET DEFAULT nextval('homes_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: id; Type: DEFAULT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Data for Name: abouts; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+-- Data for Name: abouts; Type: TABLE DATA; Schema: public; Owner: rails
 --
 
 COPY abouts (id, title, body, contact_email, contact_phone, contact_address, image_file_name, image_content_type, image_file_size, image_updated_at) FROM stdin;
@@ -295,14 +295,14 @@ COPY abouts (id, title, body, contact_email, contact_phone, contact_address, ima
 
 
 --
--- Name: abouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: abouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rails
 --
 
 SELECT pg_catalog.setval('abouts_id_seq', 1, true);
 
 
 --
--- Data for Name: artists; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+-- Data for Name: artists; Type: TABLE DATA; Schema: public; Owner: rails
 --
 
 COPY artists (id, name, bio, updated_by, created_at, updated_at, profile_pic_file_name, profile_pic_content_type, profile_pic_file_size, profile_pic_updated_at, display_image_id) FROM stdin;
@@ -311,14 +311,14 @@ COPY artists (id, name, bio, updated_by, created_at, updated_at, profile_pic_fil
 
 
 --
--- Name: artists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rails
 --
 
 SELECT pg_catalog.setval('artists_id_seq', 2, true);
 
 
 --
--- Data for Name: artworks; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+-- Data for Name: artworks; Type: TABLE DATA; Schema: public; Owner: rails
 --
 
 COPY artworks (id, name, blurb, image_description, updated_by, image_file_name, image_content_type, image_file_size, image_updated_at, artist_id) FROM stdin;
@@ -328,14 +328,14 @@ COPY artworks (id, name, blurb, image_description, updated_by, image_file_name, 
 
 
 --
--- Name: artworks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artworks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rails
 --
 
 SELECT pg_catalog.setval('artworks_id_seq', 3, true);
 
 
 --
--- Data for Name: homes; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+-- Data for Name: homes; Type: TABLE DATA; Schema: public; Owner: rails
 --
 
 COPY homes (id, title, left_header, left_body, right_header, right_body) FROM stdin;
@@ -344,14 +344,14 @@ COPY homes (id, title, left_header, left_body, right_header, right_body) FROM st
 
 
 --
--- Name: homes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: homes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rails
 --
 
 SELECT pg_catalog.setval('homes_id_seq', 1, true);
 
 
 --
--- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: rails
 --
 
 COPY schema_migrations (version) FROM stdin;
@@ -365,7 +365,7 @@ COPY schema_migrations (version) FROM stdin;
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: ltvqmklobvxdpa
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: rails
 --
 
 COPY users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at) FROM stdin;
@@ -376,14 +376,14 @@ COPY users (id, username, email, encrypted_password, reset_password_token, reset
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rails
 --
 
 SELECT pg_catalog.setval('users_id_seq', 4, true);
 
 
 --
--- Name: abouts_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: abouts_pkey; Type: CONSTRAINT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY abouts
@@ -391,7 +391,7 @@ ALTER TABLE ONLY abouts
 
 
 --
--- Name: artists_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artists_pkey; Type: CONSTRAINT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY artists
@@ -399,7 +399,7 @@ ALTER TABLE ONLY artists
 
 
 --
--- Name: artworks_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: artworks_pkey; Type: CONSTRAINT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY artworks
@@ -407,7 +407,7 @@ ALTER TABLE ONLY artworks
 
 
 --
--- Name: homes_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: homes_pkey; Type: CONSTRAINT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY homes
@@ -415,7 +415,7 @@ ALTER TABLE ONLY homes
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: rails
 --
 
 ALTER TABLE ONLY users
@@ -423,33 +423,33 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: rails
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: rails
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: ltvqmklobvxdpa
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: rails
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: ltvqmklobvxdpa
+-- Name: public; Type: ACL; Schema: -; Owner: rails
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM ltvqmklobvxdpa;
-GRANT ALL ON SCHEMA public TO ltvqmklobvxdpa;
+REVOKE ALL ON SCHEMA public FROM rails;
+GRANT ALL ON SCHEMA public TO rails;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 

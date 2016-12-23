@@ -18,6 +18,8 @@ gem 'devise'
 gem 'pundit'
 gem 'paperclip'
 gem 'poltergeist'
+gem 'dotenv-rails'
+gem 'byebug'
 
 group :development do
   gem 'byebug'
