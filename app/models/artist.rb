@@ -10,7 +10,7 @@ class Artist < ActiveRecord::Base
     if display_image_id == nil || display_image_id == ""
       return "/images/:style/missing.png"
     else
-      return Artwork.find(display_image_id).image.url(:preview, timestamp: false)
+      return Artwork.find(display_image_id).image.url
     end
   end
 end

@@ -46,6 +46,10 @@ class ArtworksController < ApplicationController
   def destroy
     @artwork=Artwork.find(params[:id])
     @artist = Artist.find(params[:artist_id])
+    if @artist.display_image_id === @artwork.id
+      @artist.update(:display_image_id => nil)
+      @artist.save
+    end
     @artwork.destroy
     redirect_to artist_path(@artist)
   end
