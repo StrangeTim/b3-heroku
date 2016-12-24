@@ -3,7 +3,7 @@
 <%= bootstrap_form_for([@artist, @artwork]) do |f| %>
   <%= f.text_field :name, value: @artwork.name %>
   <%= f.text_field :blurb, value: @artwork.blurb %>
-  <%= f.text_field :image_description, value: @artwork.image_description %>
+  <%= f.text_field :image_description, value: @artwork.image_description %>, :ckeditor => { :language => "en", :toolbar => 'full'}
   <%= image_tag(@artwork.image) %>
   <%= f.file_field :image %>
   <label for="display_image">"Make this image the display image for the artist?" </label>

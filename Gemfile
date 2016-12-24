@@ -19,7 +19,7 @@ gem 'pundit'
 gem 'paperclip'
 gem 'poltergeist'
 gem 'dotenv-rails'
-gem 'byebug'
+gem 'ckeditor'
 
 group :development do
   gem 'byebug'

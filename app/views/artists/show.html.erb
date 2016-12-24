@@ -9,7 +9,7 @@
   </span><br><br>
 <% end %>
 
-<div class="col-sm-4" >
+<div class="col-sm-4 profPic" >
   <%= image_tag @artist.profile_pic.url(:default, timestamp: false)%>
 </div>
 <div class="col-sm-6 col-sm-offset-2">
@@ -39,8 +39,8 @@
 <% @artworks.each do |artwork| %>
   <ul>
     <li class="all-artists">
-      <%= link_to image_tag(artwork.image), artist_artwork_path(@artist, artwork), alt: artwork.blurb, data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, image: artwork.image.url(:original, timestamp: false)}, remote: true %>
-      <h3><%= link_to artwork.name, artist_artwork_path(@artist, artwork), data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, image: artwork.image.url(:original, timestamp: false)}, remote: true %> </h3>
+      <%= link_to image_tag(artwork.image), artist_artwork_path(@artist, artwork), alt: artwork.blurb, data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, name: artwork.name, image: artwork.image.url(:original, timestamp: false)}, remote: true %>
+      <h3><%= link_to artwork.name, artist_artwork_path(@artist, artwork), data: {toggle: "modal", target: "#mainModal", description: artwork.image_description, name: artwork.name, image: artwork.image.url(:original, timestamp: false)}, remote: true %> </h3>
       <% if user_signed_in? %>
 
         <span class="imageButtons">
@@ -59,12 +59,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="mainModalLabel">Artwork Info:</h4>
+        <h4 class="modal-name" id="mainModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <div class="modal-image col-sm-3"></div>
-        <div class="col-sm-3"></div>
-        <div class="modal-description col-sm-3"></div>
+        <div class="modal-image"></div>
+        <div class="modal-description"></div>
       </div>
       <div class="clearfix"></div>
       <div class="modal-footer">
